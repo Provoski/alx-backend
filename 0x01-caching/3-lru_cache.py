@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""2-lifo_cache.py module"""
+"""3-lru_cache.py module"""
 BaseCaching = __import__('base_caching').BaseCaching
 
 
