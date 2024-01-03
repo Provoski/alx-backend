@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""1-fifo_cache module"""
+"""2-lifo_cache.py module"""
 BaseCaching = __import__('base_caching').BaseCaching
 
 
-class FIFOCache(BaseCaching):
+class LIFOCache(BaseCaching):
     """Child class of BaseCaching"""
 
     def __init__(self):
@@ -16,11 +16,10 @@ class FIFOCache(BaseCaching):
             return
 
         if len(self.cache_data) >= BaseCaching.MAX_ITEMS:
-            # Get the first key inserted into the cache
-            discarded_key = next(iter(self.cache_data))
+            # Get the last key inserted into the cache
+            discarded_key = list(self.cache_data.keys())[-1]
             del self.cache_data[discarded_key]
             print(f"DISCARD: {discarded_key}")
-
         self.cache_data[key] = item
 
     def get(self, key):
