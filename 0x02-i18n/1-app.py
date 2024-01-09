@@ -6,9 +6,6 @@ starts a Flask web application
 from flask import Flask, render_template
 from flask_babel import Babel
 
-app = Flask(__name__)
-babel = Babel(app)
-
 
 class Config(object):
     """app configuration class"""
@@ -17,7 +14,9 @@ class Config(object):
     BABEL_DEFAULT_TIMEZONE = "UTC"
 
 
+app = Flask(__name__)
 app.config.from_object(Config)
+babel = Babel(app)
 
 
 @app.route('/', strict_slashes=False)
@@ -27,4 +26,4 @@ def index() -> str:
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port='5000')
+    app.run(host='0.0.0.0', port='5000', debug=True)
