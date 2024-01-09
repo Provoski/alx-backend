@@ -10,7 +10,7 @@ app = Flask(__name__)
 babel = Babel(app)
 
 
-class Config:
+class Config(object):
     """app configuration class"""
     LANGUAGES = ["en", "fr"]
     BABEL_DEFAULT_LOCALE = "en"
@@ -21,7 +21,7 @@ app.config.from_object(Config)
 
 
 @app.route('/', strict_slashes=False)
-def index() -> None:
+def index() -> str:
     """returns index page"""
     return render_template('0-index.html')
 

@@ -8,7 +8,7 @@ app = Flask(__name__)
 
 
 @app.route('/', strict_slashes=False)
-def index() -> None:
+def index() -> str:
     """returns index page"""
     return render_template('0-index.html')
 
